@@ -1,23 +1,68 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import UserData from './UserData';
+import FacilityData from './FacilityData';
+import FacilityDataDetails from './FacilityDataDetails';
+import TagData from './TagData';
+import CategoryData from './CategoryData';
 
 function App() {
+  const baseUrl = process.env.REACT_APP_BASE_URL;
+
+  const [ids, setIds] = useState({
+    userId: null,
+    categoryId: null,
+    facilityDataId: null,
+    tagId: null,
+    facilityId: null,
+    metaFieldId: null,
+    userGroupId: null,
+  });
+
+  function onChangeSetId(e) {
+    setIds({ ...ids, [e.target.name]: e.target.value });
+  }
+
+  function clearId(name) {
+    setIds({ ...ids, [name]: null });
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <UserData
+        baseUrl={baseUrl}
+        ids={ids}
+        onChangeSetId={onChangeSetId}
+        clearId={clearId}
+      />
+
+      <FacilityData
+        baseUrl={baseUrl}
+        ids={ids}
+        onChangeSetId={onChangeSetId}
+        clearId={clearId}
+      />
+
+      <FacilityDataDetails
+        baseUrl={baseUrl}
+        ids={ids}
+        onChangeSetId={onChangeSetId}
+        clearId={clearId}
+      />
+
+      <TagData
+        baseUrl={baseUrl}
+        ids={ids}
+        onChangeSetId={onChangeSetId}
+        clearId={clearId}
+      />
+
+      <CategoryData
+        baseUrl={baseUrl}
+        ids={ids}
+        onChangeSetId={onChangeSetId}
+        clearId={clearId}
+      />
     </div>
   );
 }
