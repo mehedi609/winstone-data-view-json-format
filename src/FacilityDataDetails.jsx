@@ -7,7 +7,7 @@ const FacilityDataDetails = ({ baseUrl, ids, clearId, onChangeSetId }) => {
     <div className="row">
       <div className="col mt-5">
         <div className="alert alert-success" role="alert">
-          <h3 className="alert-heading">Facilities Data</h3>
+          <h3 className="alert-heading">Facilities-Data Details</h3>
           <hr />
 
           <InputForm

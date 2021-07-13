@@ -7,7 +7,7 @@ const TagData = ({ baseUrl, ids, clearId, onChangeSetId }) => {
     <div className="row">
       <div className="col mt-5">
         <div className="alert alert-success" role="alert">
-          <h3 className="alert-heading">Users Data</h3>
+          <h3 className="alert-heading">Tags Data</h3>
           <hr />
 
           <InputForm
